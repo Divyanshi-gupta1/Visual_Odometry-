@@ -1,0 +1,65 @@
+# SAUVC Visual Odometry + EKF Fusion Configuration
+
+camera:
+  fx: 500.0          # focal length px — calibrate on your camera
+  fy: 500.0
+  cx: 320.0          # principal point px
+  cy: 240.0
+  width: 640
+  height: 480
+
+# Pool tile grid — measure once in your practice pool
+tiles:
+  spacing_m: 0.30    # center-to-center distance between grout intersections (meters)
+  spacing_px: 0       # optional override: measured tile period in pixels (0 = auto)
+
+features:
+  backend: auto      # auto | lightglue | orb
+  max_keypoints: 512
+  keypoint_threshold: 0.005
+  match_threshold: 0.2
+  min_matches: 12
+  ransac_reproj_threshold: 3.0
+
+# Used by scripts/run_elo_ftr_on_video.py and scripts/run_elo_ftr_eval.py.
+# Outdoor checkpoint; validate separately on pool-floor footage.
+elo_ftr:
+  model_id: zju-community/efficientloftr
+  confidence_threshold: 0.2
+  device: null            # cuda / mps / cpu
+  max_side: 640
+  max_step_m: 0.80        # reject visual jumps faster than this (m/s)
+
+quality_gate:
+  min_inlier_ratio: 0.35
+  max_reproj_error: 2.5
+  min_parallax_px: 2.0
+  max_rotation_deg: 25.0   # reject wild jumps between frames
+
+ekf:
+  dt_default: 0.033        # 30 fps fallback
+  # Process noise (tune on your IMU)
+  sigma_accel: 0.5         # m/s^2
+  sigma_gyro: 0.05         # rad/s
+  sigma_accel_bias: 0.01
+  sigma_gyro_bias: 0.001
+  # Measurement noise
+  sigma_visual_xy: 0.05    # m — visual translation update
+  sigma_visual_yaw: 0.03   # rad
+  sigma_depth: 0.02        # m — pressure sensor
+  sigma_imu_attitude: 0.02 # rad — roll/pitch from IMU
+
+imu:
+  gravity: 9.81
+  # Axis mapping depends on your IMU mount — adjust signs in sensors.py
+
+pressure:
+  rho_water: 998.0         # kg/m^3 freshwater
+  p_surface_pa: 101325.0   # calibrate at pool surface before dive
+
+paths:
+  # Keep datasets/results outside source code; your five MP4s live here.
+  video_dir: /Users/macbook/Documents/VO/data/videos
+  imu_csv: data/imu.csv
+  pressure_csv: data/pressure.csv
+  output_dir: /Users/macbook/Documents/VO/output

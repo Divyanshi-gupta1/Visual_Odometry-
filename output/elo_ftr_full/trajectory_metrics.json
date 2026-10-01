@@ -1,0 +1,16 @@
+{
+  "frames_processed": 355,
+  "planar_rmse_m": 0.38212031157830534,
+  "planar_mean_m": 0.3310003897767593,
+  "planar_median_m": 0.2758535004559672,
+  "planar_max_m": 0.7855603329352029,
+  "planar_min_m": 1.5257945788844027e-06,
+  "planar_std_m": 0.19093107261086298,
+  "x_axis_rmse_m": 0.3487573480626326,
+  "x_axis_max_abs_m": 0.7849841749927062,
+  "x_axis_mean_abs_m": 0.29220133839066365,
+  "y_axis_rmse_m": 0.15615455386578042,
+  "y_axis_max_abs_m": 0.6693085191425596,
+  "y_axis_mean_abs_m": 0.10462471045509938,
+  "depth_rmse_m": 0.00874829333925007
+}

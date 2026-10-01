@@ -1,0 +1,14 @@
+numpy>=1.24
+opencv-python>=4.8
+scipy>=1.11
+matplotlib>=3.7
+PyYAML>=6.0
+pandas>=2.0
+torch>=2.0
+torchvision>=0.15
+kornia>=0.7.0
+transformers>=4.53        # EfficientLoFTR model and image processor
+tqdm>=4.66
+
+# SuperPoint + LightGlue (install after torch)
+# pip install git+https://github.com/cvg/LightGlue.git
