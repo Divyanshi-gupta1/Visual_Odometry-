@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from src.features.efficient_loftr import EfficientLoFTRMatcher
+from e_loftr.efficient_loftr import EfficientLoFTRMatcher
 from src.features.superpoint_lightglue import FeatureMatcher
 from src.fusion.ekf import AUVExtendedKalmanFilter
 from src.pipeline.vo_pipeline import VOPipeline

@@ -1,1 +1,5 @@
 data/videos/camera_front.mp4
+__pycache__/
+*.pyc
+.DS_Store
+*/.DS_Store

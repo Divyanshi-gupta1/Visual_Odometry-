@@ -175,7 +175,7 @@ def main() -> None:
     camera = camera_from_config(cfg)
     pipeline_class = VOPipeline
     if args.matcher == "elo_ftr":
-        from src.pipeline.elo_ftr_vo_pipeline import ELoFTRVOPipeline
+        from e_loftr.elo_ftr_vo_pipeline import ELoFTRVOPipeline
 
         pipeline_class = ELoFTRVOPipeline
     out_dir = Path(args.output or cfg["paths"]["output_dir"]).expanduser()
